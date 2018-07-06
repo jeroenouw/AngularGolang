@@ -24,7 +24,7 @@ func AllUsers() ([]User, error) {
 	users := make([]User, 0)
 	for rows.Next() {
 		u := User{}
-		err := rows.Scan(&u.ID, &u.Title, &u.city, &u.age) // order matters
+		err := rows.Scan(&u.ID, &u.name, &u.city, &u.age) // order matters
 		if err != nil {
 			return nil, err
 		}
@@ -45,7 +45,7 @@ func SingleUser(r *http.Request) (User, error) {
 
 	row := config.DB.QueryRow("SELECT * FROM users WHERE ID = $1", id)
 
-	err := row.Scan(&u.ID, &u.name, &u.city, &u.Price)
+	err := row.Scan(&u.ID, &u.name, &u.city, &u.age)
 	if err != nil {
 		return u, err
 	}

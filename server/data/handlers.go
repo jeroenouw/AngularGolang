@@ -28,7 +28,7 @@ func Show(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	u, err := SingleUser)
+	u, err := SingleUser(r)
 	switch {
 	case err == sql.ErrNoRows:
 		http.NotFound(w, r)
