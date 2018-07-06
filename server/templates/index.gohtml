@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Basic gohtml</title>
+    <title>All users</title>
 </head>
 <body>
-<h1>Serving Go Template</h1>
+{{range .}}
+<p><a href="/users/show?ID={{.ID}}">{{.ID}}</a> - {{.name}} - {{.city}} - {{.age}}</p>
+{{end}}
 </body>
 </html>
