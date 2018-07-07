@@ -3,6 +3,8 @@ package config
 import (
 	"database/sql"
 	"fmt"
+	// postgres
+	_ "github.com/lib/pq"
 )
 
 // DB ...
