@@ -12,7 +12,8 @@ var DB *sql.DB
 
 func init() {
 	var err error
-	DB, err = sql.Open("postgres", "postgres://bond:password@localhost/ngxgo?sslmode=disable")
+	connStr := "user=jeroenouw dbname=ngxgo sslmode=disable"
+	DB, err = sql.Open("postgres", connStr)
 	if err != nil {
 		panic(err)
 	}
